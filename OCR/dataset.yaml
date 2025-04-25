@@ -1,0 +1,6 @@
+train: D:/WORK/Speech2text_dan_toc/yolo_dataset_2/images/train
+val: D:/WORK/Speech2text_dan_toc/yolo_dataset_2/images/val
+
+nc: 1
+
+names: ['0']
