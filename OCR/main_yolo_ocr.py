@@ -87,12 +87,18 @@ app.mount("/save_video_frame_folder_all_crops", StaticFiles(directory="save_vide
 async def root():
     
     return {"detail":{"message": "Hello World"}}
-
+current_dir = os.path.dirname(os.path.abspath(__file__))
+def fix_path(path):
+    return path.replace("\\\\", "/").replace("\\", "/")
 @app.post("/yolo-ocr-inference")
 async def yolo_ocr_inference(source_image: str = Form(...)):
-    save_crop_folder = "crop_images"
+    save_crop_folder = os.path.join(current_dir, "crop_images")
     os.makedirs(save_crop_folder, exist_ok=True)
     new_path_ls = inference(model, source_image, save_crop_folder)
+    temp = []   
+    for path in new_path_ls:
+        temp.append(fix_path(path))
+    new_path_ls = temp
     if new_path_ls == []:
         return {"result": ""}
     frame_ocr = send_to_ocr(new_path_ls)

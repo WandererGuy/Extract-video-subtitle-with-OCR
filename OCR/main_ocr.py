@@ -7,12 +7,11 @@ import cv2
 
 def ocr(filepath, detector):
     filepath2 =  filepath
-    img = cv2.imread(filepath2)
-    img = cv2.copyMakeBorder(img, 30, 30, 30, 30, cv2.BORDER_CONSTANT, None, value = 0) 
-    # You may need to convert the color.
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    # img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY) 
-    img = Image.fromarray(img) 
+    img = Image.open(filepath2)
+    # img = cv2.imread(filepath2)
+    # img = cv2.copyMakeBorder(img, 30, 30, 30, 30, cv2.BORDER_CONSTANT, None, value = 0) 
+    # img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    # img = Image.fromarray(img) 
     ocr_output = detector.predict(img)
     return ocr_output
 

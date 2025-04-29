@@ -17,7 +17,11 @@
 OCR/VIETOCR_LOG_FILE_CHATGPT_REFINE.txt
 OCR/VIETOCR_LOG_FILE_CHATGPT.txt
 OCR/VIETOCR_LOG_FILE.txt
-OCR/weights/best_old.pt
-OCR/weights/vgg_transformer.pth
 OCR/VIETOCR_DATASET.txt
 OCR/openai_config.json
+OCR/static
+testing_video
+OCR/ocr_mapping
+OCR/weights/vgg_transformer_old.pth
+OCR/weights/best_old.pt
+OCR/weights/vgg_transformer.pth
